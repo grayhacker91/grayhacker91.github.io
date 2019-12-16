@@ -21,8 +21,10 @@ tags:
 첫 번째 단계는 모든 비주얼 요소를 식별하는 일이다. 식별하는 방법으로는 명확한 비주얼 요소부터 시작해서 덜 명확한 요소로 진행하는 것이다.
 첫 번째로 보이는 요소는 카드 그 자체이다.
 ![card_palette_second](/images/card_palette_first.JPG)
+
 그리고 카드 안에는 컬러를 보여주는 상단 영역과 컬러의 16진수 값을 보여주는 하단 영역으로 구분된다. 이것을 트리 구조로 배치하면 아래의 그림과 같다.
 ![card_palette_second](/images/card_palette_second.JPG)
+
 계속해서 나누어보면 하단 영역은 흰색 영역과 16진수 값으로 분리될 수 있다. 더 이상 나눌게 없으므로 최종형태는 아래와 같다.
 ![card_palette_second](/images/card_palette_final.JPG)
 
