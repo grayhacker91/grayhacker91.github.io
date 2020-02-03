@@ -1,5 +1,5 @@
 ---
-title: "JSX"
+title: "리액트 상태 다루기"
 date: 2020-1-16
 categories:
   - React
@@ -36,8 +36,8 @@ class LightningCounter extends React.Component {
   }
   timerTick() {
     this.setState({
-    strikes:this.state.strikes+100
-  });
+      strikes:this.state.strikes+100
+    });
   }
   componentDidMount() {
     this.timerID = setInterval(
