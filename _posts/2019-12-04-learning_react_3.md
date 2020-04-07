@@ -103,7 +103,11 @@ ReactDOM.render(
 )
 ```
 
-끝으로 컴포넌트에서도 자식을 가질 수 있다. 아래와 같이 Hello의 컴포넌트는 p태그를 자식으로 가지고 있다. 그리고 컴포넌트 안 자식들은 this.props.children을 통해서 접근이 가능하다.
+### 자식 속성 전달
+
+끝으로 컴포넌트에서도 자식을 가질 수 있다.  
+아래와 같이 Hello의 컴포넌트는 p태그를 자식으로 가지고 있다.  
+그리고 컴포넌트 안 자식들은 this.props.children을 통해서 접근이 가능하다.
 
 ```javascript
 <Hello target="world!">
@@ -133,7 +137,35 @@ ReactDOM.render(
 
 this.pros.children 속성은 자식이 여러 개라면 배열로, 하나라면 단일 컴포넌트로 전달해준다.
 
-지금까지 작성된 전체 예제
+### 속성 기본값 정의
+
+속성의 기본값을 지정하는 방법은 두 가지가 있다.  
+하나는 외부에 속성 기본값을 지정하는 전통적인 방법입니다.  
+그리고 두번째 방법은 클래스 내부에 정의하는 방법입니다.  
+
+```javascript
+Class MyComponent extends Component {
+  static defaultProps = {
+    // 클래스 내부에 지정하는 방식입니다.
+    name: 'react',
+  }
+  render() {
+    return(
+      <p>Hello, {this.props.name}</p>
+    )
+  }
+}
+
+/* 외부에서 지정하는 방식입니다.
+MyComponent.defaultProps = {
+  name: 'react',
+}
+*/
+```
+
+두 방법 모두 바벨을 통해서 ES5문법으로 변경되면 동일한 결과를 보입니다.
+
+## 지금까지 작성된 전체 예제
 
 ```html
 <!DOCTYPE html>
