@@ -137,17 +137,23 @@ ReactDOM.render(
 
 this.pros.children 속성은 자식이 여러 개라면 배열로, 하나라면 단일 컴포넌트로 전달해준다.
 
-### 속성 기본값 정의
+### 속성 기본값 정의 및 타입 정의
 
-속성의 기본값을 지정하는 방법은 두 가지가 있다.  
+속성의 기본값과 타입을 지정하는 방법은 두 가지가 있다.  
 하나는 외부에 속성 기본값을 지정하는 전통적인 방법입니다.  
 그리고 두번째 방법은 클래스 내부에 정의하는 방법입니다.  
+두 방법 모두 바벨을 통해서 ES5문법으로 변경되면 동일한 결과를 보입니다.
 
 ```javascript
 Class MyComponent extends Component {
   static defaultProps = {
     // 클래스 내부에 지정하는 방식입니다.
     name: 'react',
+  }
+  static propTypes = {
+    name: propTypes.string
+    // 만약 필수적으로 존재해야하는 값이면 isReuired를 지정합니다.
+    // name: propTypes.string.isRequired
   }
   render() {
     return(
@@ -160,10 +166,30 @@ Class MyComponent extends Component {
 MyComponent.defaultProps = {
   name: 'react',
 }
+MyComponent.propTypes = {
+  name: propTypes.string
+}
 */
 ```
 
-두 방법 모두 바벨을 통해서 ES5문법으로 변경되면 동일한 결과를 보입니다.
+prop type 종류
+
+* array: 배열
+* bool: 참, 거짓
+* func: 함수
+* number: 숫자
+* object: 객체
+* string: 문자열
+* symbol: ES6심벌 개체
+* node: 렌더링 할 수 있는 모든 것(숫자, 문자열, element 또는 이들로 구성된 배열)
+* elemen: 리액트 요소
+* instanceOf(MyClass): 특정 클래스의 인스턴스
+* oneOf(['Male'], ['Female']): 주어진 배열 요소 중 값 하나
+* oneOfType([React.PropTypes.string, React.PropTypes.number]): 주어진 배열 안의 종류 중 하나
+* arrayOf(React.PropTypes.number): 주어진 종류로 구성된 배열
+* objectOf(React.PropTypes.number): 주어진 종류의 값을 가진 객체
+* shape({name: React.PropTypes.string, age: React.PropTypes.number}): 주어진 스키마를 가지 ㄴ객체
+* any: 아무 종류
 
 ## 지금까지 작성된 전체 예제
 
